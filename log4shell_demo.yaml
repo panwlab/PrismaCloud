@@ -1,0 +1,104 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: david-vul-app-1-pod
+  labels:
+    app: david-vul-app-1
+spec:
+  containers:
+    - name: david-vul-app-1
+      image: fefefe8888/l4s-demo-app:1.0
+      imagePullPolicy: IfNotPresent
+      ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: david-vul-app-2-pod
+  labels:
+    app: david-vul-app-2
+spec:    
+  containers:
+    - name: david-vul-app-2
+      image: fefefe8888/l4s-demo-app:1.0
+      imagePullPolicy: IfNotPresent
+      ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: david-att-svr-pod
+  labels:
+    app: david-att-svr
+spec:
+   containers:
+     - name: david-att-svr
+       image: fefefe8888/l4s-demo-svr:1.0
+       ports:
+         - containerPort: 1389
+           name: ldap
+         - containerPort: 8888
+           name: response-web
+---
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: david-attacker-machine
+  labels:
+    app: david-attacker-machine
+spec:
+  containers:
+    - name: david-attacker-machine
+      image: fefefe8888/my-ubuntu:18.04
+      imagePullPolicy: IfNotPresent
+      command: ["/bin/bash","-ce","tail -f /dev/null"]
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: david-vul-app-1
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+  selector:
+    app: david-vul-app-1
+  type: ClusterIP
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: david-vul-app-2
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+  selector:
+    app: david-vul-app-2
+  type: ClusterIP
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: david-att-svr
+spec:
+  selector:
+    app: david-att-svr
+  ports:
+    - name: ldap
+      port: 1389
+      protocol: TCP
+      targetPort: 1389
+    - name: response
+      port: 8888
+      protocol: TCP
+      targetPort: 8888
+  type: ClusterIP
+---
