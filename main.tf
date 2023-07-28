@@ -3,7 +3,6 @@ resource "google_compute_instance" "ofw_uw2_b_1" {
   machine_type              = "n1-standard-4"
   zone                      = "us-west2-b"
   min_cpu_platform          = "${var.machine_cpu_fw}"
-  can_ip_forward            = true
   allow_stopping_for_update = true
   deletion_protection       = false
   count                     = 1 
@@ -11,7 +10,6 @@ resource "google_compute_instance" "ofw_uw2_b_1" {
   tags = ["fw-ilb-hc", "palo-alto-for-management","pa-fwrule-outbound-allowed-subnets"]
   // Adding METADATA Key Value pairs to VM-Series GCE instance
   metadata = {
-    serial-port-enable  = true
     mgmt-interface-swap = "enable"
     ssh-keys            = "${var.public_key}"
     panorama-server="192.168.250.5"
@@ -65,6 +63,9 @@ resource "google_compute_instance" "ofw_uw2_b_1" {
       type = "pd-ssd"
     }
   }
+  metadata = {
+    block-project-ssh-keys = true
+  }
 }
 
 
@@ -73,7 +74,6 @@ resource "google_compute_instance" "ofw_uw2_b_2" {
   machine_type              = "n1-standard-4"
   zone                      = "us-west2-b"
   min_cpu_platform          = "${var.machine_cpu_fw}"
-  can_ip_forward            = true
   allow_stopping_for_update = true
   deletion_protection       = false
   count                     = 1 
@@ -81,7 +81,6 @@ resource "google_compute_instance" "ofw_uw2_b_2" {
   tags = ["fw-ilb-hc", "palo-alto-for-management","pa-fwrule-outbound-allowed-subnets"]
   // Adding METADATA Key Value pairs to VM-Series GCE instance
   metadata = {
-    serial-port-enable  = true
     mgmt-interface-swap = "enable"
     ssh-keys            = "${var.public_key}"
     panorama-server="192.168.250.5"
@@ -144,6 +143,9 @@ resource "google_compute_instance" "ofw_uw2_b_2" {
       type = "pd-ssd"
     }
   }
+  metadata = {
+    block-project-ssh-keys = true
+  }
 }
 
 
@@ -152,7 +154,6 @@ resource "google_compute_instance" "ofw_uw2_b_3" {
   machine_type              = "n1-standard-4"
   zone                      = "us-west2-b"
   min_cpu_platform          = "${var.machine_cpu_fw}"
-  can_ip_forward            = true
   allow_stopping_for_update = true
   deletion_protection       = false
   count                     = 1 
@@ -160,7 +161,6 @@ resource "google_compute_instance" "ofw_uw2_b_3" {
   tags = ["fw-ilb-hc", "palo-alto-for-management","pa-fwrule-outbound-allowed-subnets"]
   // Adding METADATA Key Value pairs to VM-Series GCE instance
   metadata = {
-    serial-port-enable  = true
     mgmt-interface-swap = "enable"
     ssh-keys            = "${var.public_key}"
     panorama-server="192.168.250.5"
@@ -222,6 +222,9 @@ resource "google_compute_instance" "ofw_uw2_b_3" {
       image = "${var.image_fw}"
       type = "pd-ssd"
     }
+  }
+  metadata = {
+    block-project-ssh-keys = true
   }
 }
 
