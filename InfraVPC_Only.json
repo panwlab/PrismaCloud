@@ -397,6 +397,7 @@
         },
         "SgVmNGFW": {
             "Type": "AWS::EC2::SecurityGroup",
+            "description" : "Allow inbound traffic to ElasticSearch from VPC CIDR",
             "Properties": {
                 "GroupDescription": "Allow http to client host",
                 "VpcId": {
@@ -405,7 +406,8 @@
                 "Tags": [
                     {
                         "Key": "Name",
-                        "Value": "SG-VM-NGFW"
+                        "Value": "SG-VM-NGFW",
+                        "description" : "SG-VM-NGFW"
                     },
                     {
                         "Key": "Security group name",
@@ -423,7 +425,7 @@
                         "IpProtocol": "TCP",
                         "FromPort": 22,
                         "ToPort": 22,
-                        "CidrIp": "1.1.1./32"
+                        "CidrIp": "0.0.0.0/0"
                     },
                     {
                         "IpProtocol": "ALL",
