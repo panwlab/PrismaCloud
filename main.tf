@@ -13,6 +13,7 @@ resource "google_compute_instance" "ofw_uw2_b_1" {
   metadata = {
     serial-port-enable  = true
     mgmt-interface-swap = "enable"
+    //ssh-keys            = "${var.public_key}"
     ssh-keys            = "${var.public_key}"
     panorama-server="192.168.250.5"
     dns-primary="169.254.169.254"
