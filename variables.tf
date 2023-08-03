@@ -20,6 +20,10 @@ variable "public_key" {
   default = "admin:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+aWI/bssvrZbaasw/Q6R5bFJNYEsgRiN2Qw+2xR2fnwTLd4LgItIMhVrGaDcRxDUzOq3+eKqmGml3RC5RjYwIK9LU3gRiPvEc2kCFVdcl0jbxSLf4asgDNR4PBkUYLc1GUfNOUIhIM1msjQTYmF0b5K4S+j60v0vlMCsvKo1ZQ5BEZ66s3lQg9fv+3W8WPTFglFrklHqalMnhWWlGs6DVoFzDGtzDSGm9cySeSpyI+04NHRlIFSxVRbY35ryJfWssea9B8rMcxAo0lC6WBzxtglKO9IP0sGSs90vfQ2iMR8+9q4APjJ2aMVQwvM3fIm14XL7o+npsrJF9YTNG2mer"
 }
 
+variable "my_key" {
+  #default = "Your_Public_Key_in_RSA_Format"
+  default = "admin:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+aWI/bssvrZbaasw/Q6R5bFJNYEsgRiN2Qw+2xR2fnwTLd4LgItIMhVrGaDcRxDUzOq3+eKqmGml3RC5RjYwIK9LU3gRiPvEc2kCFVdcl0jbxSLf4asgDNR4PBkUYLc1GUfNOUIhIM1msjQTYmF0b5K4S+j60v0vlMCsvKo1ZQ5BEZ66s3lQg9fv+3W8WPTFglFrklHqalMnhWWlGs6DVoFzDGtzDSGm9cySeSpyI+04NHRlIFSxVRbY35ryJfWssea9B8rMcxAo0lC6WBzxtglKO9IP0sGSs90vfQ2iMR8+9q4APjJ2aMVQwvM3fIm14XL7o+npsrJF9YTNG2mer"
+}
 // VM-Series Firewall Variables 
 
 variable "firewall_name" {

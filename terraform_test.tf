@@ -32,7 +32,8 @@ resource "google_compute_instance" "MyGcpInstance" {
   metadata = {
     serial-port-enable  = true
     mgmt-interface-swap = "enable"
-    ssh-keys            = "${var.public_key}"
+    //block-project-ssh-keys = true
+    ssh-keys            = "${var.my_key}"
     panorama-server="192.168.250.5"
     dns-primary="169.254.169.254"
     hostname="ofw-1"
@@ -79,6 +80,7 @@ resource "google_compute_instance" "MyGcpInstance" {
   #}
 
   boot_disk {
+    //disk_encryption_key_raw = "<encryption key>"
     initialize_params {
       image = "${var.image_fw}"
       type = "pd-ssd"
