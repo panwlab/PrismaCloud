@@ -3,6 +3,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: ignite2023-vul-app-1-pod
+  namespace: log4j-demo
   labels:
     app: ignite2023-vul-app-1
 spec:
@@ -17,6 +18,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: ignite2023-vul-app-2-pod
+  namespace: log4j-demo
   labels:
     app: ignite2023-vul-app-2
 spec:    
@@ -31,6 +33,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: ignite2023-att-svr-pod
+  namespace: log4j-demo
   labels:
     app: ignite2023-att-svr
 spec:
@@ -47,7 +50,8 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: ignite2023-attacker-machine
+  name: ignite2023-attacker-machine-pod
+  namespace: log4j-demo
   labels:
     app: ignite2023-attacker-machine
 spec:
