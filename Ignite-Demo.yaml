@@ -66,6 +66,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: ignite2023-vul-app-1
+  namespace: log4j-demo
 spec:
   ports:
   - port: 8080
@@ -79,6 +80,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: ignite2023-vul-app-2
+  namespace: log4j-demo
 spec:
   ports:
   - port: 8080
@@ -92,6 +94,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: ignite2023-att-svr
+  namespace: log4j-demo
 spec:
   selector:
     app: ignite2023-att-svr
