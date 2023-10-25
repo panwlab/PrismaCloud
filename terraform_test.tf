@@ -22,7 +22,6 @@ resource "google_compute_instance" "MyGcpInstance" {
   machine_type              = "n1-standard-4"
   zone                      = "us-west2-b"
   min_cpu_platform          = "${var.machine_cpu_fw}"
-  can_ip_forward            = true
   allow_stopping_for_update = true
   deletion_protection       = false
   count                     = 1 
@@ -30,7 +29,6 @@ resource "google_compute_instance" "MyGcpInstance" {
   tags = ["fw-ilb-hc", "palo-alto-for-management","pa-fwrule-outbound-allowed-subnets"]
   // Adding METADATA Key Value pairs to VM-Series GCE instance
   metadata = {
-    serial-port-enable  = true
     mgmt-interface-swap = "enable"
     //block-project-ssh-keys = true
     ssh-keys            = "${var.my_key}"
@@ -85,5 +83,8 @@ resource "google_compute_instance" "MyGcpInstance" {
       image = "${var.image_fw}"
       type = "pd-ssd"
     }
+  }
+  metadata = {
+    block-project-ssh-keys = true
   }
 }
