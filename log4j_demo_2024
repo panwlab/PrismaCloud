@@ -1,0 +1,36 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: azure-attacker-machine
+  namespace: log4j-demo
+  labels:
+    app: azure-attacker-machine
+spec:
+  automountServiceAccountToken: false
+  containers:
+    - name: azure-attacker-machine
+      image: fefefe8888/my-ubuntu:18.04
+      securityContext:
+        readOnlyRootFilesystem: true
+        #allowPrivilegeEscalation: false
+        seccompProfile:
+          type: RuntimeDefault
+        runAsNonRoot: true
+        runAsUser: ubuntu
+        capabilities:
+          drop:
+            - NET_RAW
+            - All
+      resources:
+        requests:
+          memory: 1024M
+          cpu: 10%
+        limits:
+          memory: 1024M
+          cpu: 20%
+      #imagePullPolicy: IfNotPresent
+      imagePullPolicy: Always
+      command: ["/bin/bash","-ce","tail -f /dev/null"]
+
+---
