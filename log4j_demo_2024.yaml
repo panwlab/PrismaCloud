@@ -13,7 +13,7 @@ spec:
       image: fefefe8888/my-ubuntu:18.04
       securityContext:
         readOnlyRootFilesystem: true
-        allowPrivilegeEscalation: false
+        #allowPrivilegeEscalation: false
         seccompProfile:
           type: RuntimeDefault
         runAsNonRoot: true
