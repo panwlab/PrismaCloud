@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: pod-isolation-ingress-2
+  namespace: namespace-1-1
+spec:
+  podSelector: 
+     matchLabels:
+       role: web
+  policyTypes:
+    - Ingress
+      # ingress:
+      # - from:
+      # - podSelector:
+      # matchLabels:
+      # Label_allow : allow    
