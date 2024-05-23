@@ -37,7 +37,7 @@ resource "google_compute_instance" "MyGcpInstance" {
     panorama-server="192.168.250.5"
     dns-primary="169.254.169.254"
     hostname="ofw-1"
-    auth-key="_AQ__eUZInq7JiDuw9Ci4hC6Tnabc"
+    auth-key="_AQ__demonq7JiDuw9Ci4hC6Tnabc"
     dgname="vm-outbound"
     tplname="vm-outbound_stack"
     plugin-op-commands="panorama-licensing-mode-on"
