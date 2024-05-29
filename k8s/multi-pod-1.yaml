@@ -11,7 +11,6 @@ spec:
     - name: container-4
       image: dachenpanw/ignite2023_docker:91
       imagePullPolicy: IfNotPresent
-  containers:
     - name: container-5
       image: dachenpanw/ignite2023_docker:91
       imagePullPolicy: IfNotPresent
